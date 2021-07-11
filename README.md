@@ -5,7 +5,14 @@
 - background, general trash, paper, plastic bag 등 총 12개 class
 - class간 불균형이 매우 심하다. (개체 수 기준 7000개~50개)
 - 학습용 데이터는 매우 깔끔하게 전처리되어 제공되었으며, 512x512 사이즈
-</br></br>
+
+### Competition Result
+- 최종 스코어(mIoU) : 0.6991
+- 팀 최종순위 : 3 / 19
+- 나의 총 제출횟수 : 46회
+
+</br>
+
 # 2. Work Flow
 ### Day01                           (0.5754 : mIoU)
 
@@ -60,7 +67,18 @@
 - team Ensemble (4가지 모델 사용)
 </br></br></br>
 
-# 3. Experiments
+# 3. Final Submission
+|Encoder|Decoder|mIoU|
+|--|--|--|
+|DeepLabV3+| ResNeXt101_32x16d| 0.6748|
+|PAN| ResNeXt101_32x8d 			 |0.6786|
+|FPN| EfficientNet-b6 				 |0.6379|
+|Swin-Transformer Base|UperNet		 	 |0.6543|
+
+### **"5-Fold" + "Multi-Scale" Soft Ensemble = 0.6991**
+</br></br>
+
+# 4. Experiments
 ### iou loss + CrossEntropy
 
 - giou라고 하는 detection용 loss함수에서 1-iou값을 사용하겠다는 포인트를 착안하였습니다.
@@ -96,6 +114,7 @@
 - 기존 metric 함수는 배치 단위로 miou를 계산하는 문제점이 있었고, 모든 이미지에 대해 한번에 miou를 계산하는 방식으로 수정하였습니다. (ver.2)
 - ver.2가 LB스코어와 어느정도 근접하게 되었지만, 그래도 갭은 존재했기에 아예 대회 스코어 계산 방식과 동일하게 metric을 수정해 주었습니다. (ver.3)
 각각 이미지에 대해 miou 계산 후 누적하여 전체를 평균하는 방식입니다.
+- 초기 **val 0.4534  LB 0.6567** -> 개선 후 **val 0.6610 LB 0.6567**
 
 ### ClassMix Augmentation
 
@@ -111,3 +130,4 @@
 
 - EfficientNet + BiFPN 형태로, 구글링을 통해 detection head가 연결된 아키텍쳐 구현 코드를 발견했습니다.
 - detection head를 제거하고 segmentation head를 연결하는데 성공하였지만, 성능이 좋지 않았습니다.
+
