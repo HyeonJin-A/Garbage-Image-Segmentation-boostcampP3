@@ -13,7 +13,7 @@
 
 </br>
 
-# 2. Work Flow
+# 2. Work Flow :runner:
 ### Day01                           (0.5754 : mIoU)
 
 - baseline 코드 작성
