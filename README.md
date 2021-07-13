@@ -68,12 +68,12 @@
 </br></br></br>
 
 # 3. Final Submission :triangular_flag_on_post:
-|Encoder|Decoder|mIoU|
+|Method|Backbone|mIoU|
 |--|--|--|
 |DeepLabV3+| ResNeXt101_32x16d| 0.6748|
 |PAN| ResNeXt101_32x8d 			 |0.6786|
 |FPN| EfficientNet-b6 				 |0.6379|
-|Swin-Transformer Base|UperNet		 	 |0.6543|
+|UperNet|Swin-Transformer Base |0.6543|
 
 ### **"5-Fold" + "Multi-Scale" Soft Ensemble = 0.6991**
 </br></br>
